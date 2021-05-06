@@ -2,11 +2,11 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     tags:
       - 'v*'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   docker:
@@ -20,7 +20,7 @@ jobs:
         id: meta
         uses: crazy-max/ghaction-docker-meta@v2
         with:
-          images: hg8496/gridvis-hub
+          images: jnza/gridvis-hub
           tags: |
             type=ref,event=branch
             type=ref,event=pr
