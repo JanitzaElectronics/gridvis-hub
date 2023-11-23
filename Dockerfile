@@ -5,7 +5,7 @@ ENV VERSION 9.1.0-SNAPSHOT
 
 COPY response.varfile /response.varfile
 
-RUN apt-get update && apt-get install -y openjdk-11-jre ttf-ubuntu-font-family wget gzip bash && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y openjdk-17-jre ttf-ubuntu-font-family wget gzip bash && rm -rf /var/lib/apt/lists/*
 RUN wget -q -O hub.sh http://gridvis.janitza.de/download/${VERSION}/GridVis-Hub-${VERSION}-unix.sh \
     && sh hub.sh -q -varfile /response.varfile \
     && echo "Installer finished" \
@@ -13,7 +13,7 @@ RUN wget -q -O hub.sh http://gridvis.janitza.de/download/${VERSION}/GridVis-Hub-
 
 FROM ubuntu:20.04
 
-RUN useradd -r gridvis -u 101 && apt-get update && apt-get install -y openjdk-11-jre ttf-ubuntu-font-family && rm -rf /var/lib/apt/lists/*
+RUN useradd -r gridvis -u 101 && apt-get update && apt-get install -y openjdk-17-jre ttf-ubuntu-font-family && rm -rf /var/lib/apt/lists/*
 COPY --from=build /usr/local/GridVisHub /usr/local/GridVisHub
 
 RUN mkdir -p /opt/GridVisHubData \
