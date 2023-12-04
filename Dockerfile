@@ -1,7 +1,7 @@
 FROM --platform=$BUILDPLATFORM ubuntu:20.04 AS build
 
 ENV HOME /root
-ENV VERSION 9.1.0-SNAPSHOT
+ENV VERSION 9.1.20-SNAPSHOT
 
 COPY response.varfile /response.varfile
 
