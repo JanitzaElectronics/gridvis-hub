@@ -18,4 +18,5 @@ then
     GROOVY_PARAM="--groovy $STARTUP_GROOVY"                         
 fi
 sed -i -E -e "s/Xmx[0-9]+m/Xmx${MAX_RAM_SIZE_MB}m/g" /usr/local/GridVisHub/etc/hub.conf
-exec /usr/local/GridVisHub/bin/hub -J-Duser.timezone="${USER_TIMEZONE:-UTC}" --locale "${USER_LANG:-en}" -J-Dfile.encoding="${FILE_ENCODING:-UTF-8}" $FEATURE_PARAMS $GROOVY_PARAM
+exec /usr/local/GridVisHub/bin/hub -J-Duser.timezone="${USER_TIMEZONE:-UTC}" --locale "${USER_LANG:-en}" \
+-J-Dfile.encoding="${FILE_ENCODING:-UTF-8}" $FEATURE_PARAMS $GROOVY_PARAM --cachedir /opt/GridVisHubData/var/cache
